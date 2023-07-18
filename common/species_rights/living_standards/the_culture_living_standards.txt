@@ -102,10 +102,6 @@ living_standard_utopian = {
 			has_trait = trait_machine_unit
 			is_shackled_robot_species_rights = yes
 		}
-		OR = {
-			from = { NOT = { has_origin = origin_the_culture } }
-			has_trait = trait_mechanical
-		}
 	}
 
 	allow = {
@@ -118,6 +114,10 @@ living_standard_utopian = {
 					has_ethic = ethic_fanatic_egalitarian
 				}
 			}
+		}
+		custom_tooltip = {
+			fail_text = the_culture_living_standard
+			NOT = { has_trait = trait_culture_citizen }
 		}
 		custom_tooltip = {
 			fail_text = is_slaves_tooltip

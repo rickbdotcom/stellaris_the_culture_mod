@@ -15,6 +15,23 @@ the_culture_tech_setup = {
 	give_technology = { tech = tech_robotic_workers message = no }
 	give_technology = { tech = tech_droid_workers message = no }
 	give_technology = { tech = tech_synthetic_workers message = no }
+	give_technology = { tech = tech_synthetic_leaders message = no }
+
+}
+
+# Called by the_culture.5
+the_culture_leader_setup {
+	ruler = {
+		change_species = event_target:species_mind
+		change_leader_portrait = species
+	}
+
+	owner = {
+		every_owned_leader = {
+			change_species = event_target:species_mind
+			change_leader_portrait = species
+		}
+	}
 }
 
 # Called by the_culture.2
@@ -103,7 +120,6 @@ the_culture_home_planet_setup = {
 			species = event_target:species_mind
 		}
 	}
-
 
 	while = {
 		count = 2

@@ -40,21 +40,26 @@ citizenship_full = {
 
 	potential = {
 		exists = from
-		from = { 
-			NOT = { has_authority = auth_machine_intelligence } 
-		}
-		NOR = {
-			has_trait = trait_machine_unit
-			is_shackled_robot_species_rights = yes
-		}
 		OR = {
-			from = { NOT = { has_origin = origin_the_culture } }
-			has_trait = trait_mechanical
+			from = { has_origin = origin_the_culture }			
+			AND = {
+				NOT = { from = { has_authority = auth_machine_intelligence } }
+				NOR = {
+					has_trait = trait_machine_unit
+					is_shackled_robot_species_rights = yes
+				}
+			}
 		}
 	}
 
 	allow = {
 		hidden_trigger = { exists = from }
+
+		custom_tooltip = {
+			fail_text = the_culture_full_citizenship
+			from = { has_origin = origin_the_culture }
+			has_trait = trait_mechanical
+		}
 
 		custom_tooltip = {
 			fail_text = "pre_sapients_citizenship"

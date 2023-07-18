@@ -75,18 +75,3 @@ can_generate_leader_from_pop = {
 		has_trait = trait_culture_mind
 	}
 }
-
-can_generate_leader_from_species = {
-	is_sapient = yes
-	OR = {
-		NAND = {
-			NOT = { root = { has_technology = "tech_synthetic_leaders" } }
-			has_trait = "trait_mechanical"
-		}
-		has_citizenship_type = { type = citizenship_full country = root }
-	}
-	OR = {
-		root = { NOT = { has_origin = origin_the_culture } }
-		has_trait = trait_culture_mind
-	}
-}
