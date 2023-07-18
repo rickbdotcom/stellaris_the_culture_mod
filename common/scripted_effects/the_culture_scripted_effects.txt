@@ -5,6 +5,24 @@ the_culture_country_setup = {
 		option = ai_full_rights
 		cooldown = no
 	}
+	ruler = {
+		change_species = event_target:species_mind
+		change_leader_portrait = species
+	}
+
+	owner = {
+		every_owned_leader = {
+			change_species = event_target:species_mind
+			change_leader_portrait = species
+		}
+	}
+
+	owner = {
+		every_pool_leader = {
+			change_species = event_target:species_mind
+			change_leader_portrait = species
+		}
+	}
 }
 
 # called by culture.3
@@ -17,21 +35,6 @@ the_culture_tech_setup = {
 	give_technology = { tech = tech_synthetic_workers message = no }
 	give_technology = { tech = tech_synthetic_leaders message = no }
 
-}
-
-# Called by the_culture.5
-the_culture_leader_setup {
-	ruler = {
-		change_species = event_target:species_mind
-		change_leader_portrait = species
-	}
-
-	owner = {
-		every_owned_leader = {
-			change_species = event_target:species_mind
-			change_leader_portrait = species
-		}
-	}
 }
 
 # Called by the_culture.2
