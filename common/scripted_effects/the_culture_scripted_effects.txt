@@ -1,0 +1,247 @@
+# Called by the_culture.4
+the_culture_country_setup = {
+	set_policy = {
+		policy = artificial_intelligence_policy
+		option = ai_full_rights
+		cooldown = no
+	}
+}
+
+# called by culture.3
+the_culture_tech_setup = {
+	give_technology = { tech = tech_habitat_1 message = no }
+	give_technology = { tech = tech_habitat_2 message = no }
+	give_technology = { tech = tech_habitat_3 message = no }
+	give_technology = { tech = tech_robotic_workers message = no }
+	give_technology = { tech = tech_droid_workers message = no }
+	give_technology = { tech = tech_synthetic_workers message = no }
+}
+
+# Called by the_culture.2
+the_culture_home_planet_setup = {
+	log = "the_culture_home_planet_setup on \\[This.GetName] for \\[This.Owner.GetRealName]"
+
+	optimize_memory
+	owner = {
+		give_starting_resources_effect = yes
+		save_event_target_as = the_culture_owner
+		
+		if = {
+			limit = {
+				OR = {
+					is_lithoid_empire = no
+					is_catalytic_empire = yes
+				}
+			}
+			give_technology = {
+				tech = tech_eco_simulation
+				message = no
+			}
+			give_technology = {
+				tech = tech_hydroponics
+				message = no
+			}
+		}
+		else = {
+			give_technology = {
+				tech = tech_powered_exoskeletons
+				message = no
+			}
+			give_technology = {
+				tech = tech_space_mining_1
+				message = no
+			}
+		}
+	}
+
+	owner_main_species = {
+		set_citizenship_type = {
+			country = root.owner
+			type = citizenship_organic_trophy
+		}
+		set_living_standard = {
+			country = root.owner
+			type = living_standard_organic_trophy
+		}
+	}
+
+	create_species = {
+		name = "NAME_Culture_Mind"
+		plural = "NAME_Culture_Mind_plural"
+		class = ROBOT
+		namelist = this
+		portrait = "sd_rep_robot"
+		traits = {
+			trait = "trait_mechanical"
+			trait = "trait_culture_mind"
+		}
+	}
+
+	last_created_species = {
+		save_global_event_target_as = species_mind 
+	}
+
+	create_species = {
+		name = "NAME_Culture_Drone"
+		plural = "NAME_Culture_Drone_plural"
+		class = ROBOT
+		namelist = this
+		portrait = "sd_mol_robot"
+		traits = {
+			trait = "trait_mechanical"
+			trait = "trait_culture_drone"
+		}
+	}
+
+	last_created_species = {
+		save_global_event_target_as = species_drone 
+	}
+
+	while = {
+		count = 2
+		create_pop = {
+			species = event_target:species_mind
+		}
+	}
+
+
+	while = {
+		count = 2
+		create_pop = {
+			species = event_target:species_drone
+		}
+	}
+
+	while = {
+		count = 10
+		create_pop = {
+			species = owner_main_species
+		}
+	}
+
+	set_planet_entity = {
+		entity = "habitat_phase_03_entity"
+		graphical_culture = event_target:the_culture_owner
+	}
+	set_planet_size = 8
+	set_planet_flag = advanced_habitat_2
+	
+#	planet_max_buildings_add = 15
+
+	add_district_and_planet_size_if_needed_effect = {
+		district = district_hab_housing
+	}
+	add_district_and_planet_size_if_needed_effect = {
+		district = district_hab_industrial
+	}
+	add_district_and_planet_size_if_needed_effect = {
+		district = district_hab_industrial
+	}
+
+	add_district_and_planet_size_if_needed_effect = {
+		district = district_generator
+	}
+	
+	add_building = building_organic_sanctuary
+	add_building = building_hab_major_capital
+	add_building = building_robot_assembly_plant
+	add_building = building_bureaucratic_1
+	add_building = building_holo_theatres
+
+	add_district_and_planet_size_if_needed_effect = {
+		district = district_hab_science
+	}
+
+	add_deposit = d_arcane_replicator
+	solar_system = {
+		random_system_planet = {
+			limit = { has_planet_flag = the_culture_habitat_2 }
+			set_owner = event_target:the_culture_owner
+			while = {
+				count = 9
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			set_planet_entity = {
+				entity = "habitat_phase_03_entity"
+				graphical_culture = event_target:the_culture_owner
+			}
+			set_planet_size = 8
+			set_planet_flag = advanced_habitat_2
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_housing
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_mining
+			}
+
+			if = {
+				limit = {
+					owner = {
+						OR = {
+							is_lithoid_empire = no
+							is_catalytic_empire = yes
+						}
+					}
+				}
+				add_building = building_hydroponics_farm
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_hab_commercial
+				}
+			}
+			else = {
+				add_building = building_commercial_zone
+				add_district_and_planet_size_if_needed_effect = {
+					district = district_hab_mining
+				}
+			}
+		}
+		random_system_planet = {
+			limit = { has_planet_flag = the_culture_habitat_3 }
+			set_owner = event_target:the_culture_owner
+			while = {
+				count = 9
+				create_pop = {
+					species = owner_main_species
+				}
+			}
+			set_planet_entity = {
+				entity = "habitat_phase_03_entity"
+				graphical_culture = event_target:the_culture_owner
+			}
+			set_planet_size = 8
+			set_planet_flag = advanced_habitat_2
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_housing
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_energy
+			}
+			add_district_and_planet_size_if_needed_effect = {
+				district = district_hab_commercial
+			}
+
+			if = {
+				limit = {
+					owner = {
+						is_lithoid_empire = no
+					}
+				}
+				add_building = building_hydroponics_farm
+			}
+			if = {
+				limit = {
+					owner = {
+						is_lithoid_empire = yes
+					}
+				}
+				add_building = building_bureaucratic_1
+			}
+		}
+		every_system_planet = {
+			limit = { has_planet_flag = mining_planet }
+			create_mining_station = { owner = event_target:the_culture_owner }
+		}
+	}
+}

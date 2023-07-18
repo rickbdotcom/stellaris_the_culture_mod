@@ -1,0 +1,60 @@
+trait_culture_mind = {
+	initial = no
+	randomized = no
+
+	species_potential_add = {
+		always = yes
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	immortal_leaders = yes
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		pop_environment_tolerance = 2.0
+	}
+}
+
+trait_culture_drone = {
+	initial = no
+	randomized = no
+
+	species_potential_add = {
+		always = yes
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+	immortal_leaders = yes
+
+	allowed_archetypes = { ROBOT }
+
+	modifier = {
+		pop_environment_tolerance = 2.0
+	}
+}
+
+trait_culture_citizen = {
+	initial = no
+	randomized = no
+
+	species_potential_add = {
+		always = no
+	}
+	species_possible_remove = {
+		always = no
+	}
+	species_possible_merge_add = {
+		always = no
+	}
+
+	allowed_archetypes = { BIOLOGICAL LITHOID }
+}

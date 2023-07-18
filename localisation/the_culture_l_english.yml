@@ -1,0 +1,11 @@
+﻿l_english:
+ origin_the_culture: "The Culture"
+ origin_the_culture_desc: "The Culture!"
+ origin_the_culture_effects: "This is a friendly description of the origin."
+ #origin_the_culture_secondary_species: "Secondary Species Role"
+ the_culture_system_NAME:0 "The Culture"
+ the_culture_system_DESC:0 "Starting system for The Culture Origin."
+NAME_Culture_Drone:0 "Drone"
+NAME_Culture_Drone_plural:0 "Drones"
+NAME_Culture_Mind:0 "Mind"
+NAME_Culture_Mind_plural:0 "Minds"

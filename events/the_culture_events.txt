@@ -1,0 +1,93 @@
+namespace = the_culture
+
+# flag mod as active - this is considered polite in the modding community, and will let other mods check if yours is installed
+# triggered by on_game_start and on_single_player_save_game_load
+event = {
+    id = the_culture.0
+    hide_window = yes
+    is_triggered_only = yes
+    trigger = {
+        NOT = { has_global_flag = the_culture_installed }
+    }
+    immediate = {
+        log = "the_culture.0"
+        set_global_flag = the_culture_installed
+    }
+}
+
+# example event that is called by an espcially "early" on_action in common/on_actions/000_the_culture_early_on_actions.txt
+# this event can be repurposed for any reason you might want to disable custom capital planet setup for an empire
+# triggered by empire_init_capital_planet
+# root = planet, capital
+# from = species, founder
+planet_event = {
+    id = the_culture.1
+    hide_window = yes
+    is_triggered_only = yes
+    pre_triggers = {
+        has_owner = yes
+    }
+    trigger = {
+        owner = { has_origin = origin_the_culture }
+    }
+    immediate = {
+        log = "the_culture.1 for [This.Owner.GetRealName]"
+        # disable default initialization - this is a magic flag that disables the built-in capital planet setup,
+        # and how we avoid spawning the default number of Pops for only the primary species
+        set_planet_flag = special_start_planet
+        # if you have a custom solar_system intializer for your origin (and the origin _must_ select one form your list),
+        # you can omit this event and its special on_action file and instead add "flags = { special_start_planet }"
+        # to the capital planet in the initialier's file
+    }
+}
+
+# triggered by empire_init_capital_planet
+# root = planet, capital
+# from = species, main
+planet_event = {
+    id = the_culture.2
+    hide_window = yes
+    is_triggered_only = yes
+    pre_triggers = {
+        has_owner = yes
+    }
+    trigger = {
+        owner = { has_origin = origin_the_culture }
+    }
+    immediate = {
+        log = "the_culture.2 for [This.Owner.GetRealName]"
+        if = {
+            limit = { has_planet_flag = the_culture_habitat_1 }
+            the_culture_home_planet_setup = yes
+        }
+    }
+}
+
+# triggered by empire_init_add_technologies
+# root = country
+country_event = { 
+	id = the_culture.3
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_the_culture
+	}
+	immediate = {
+        log = "the_culture.3 for [This.GetRealName]"
+        the_culture_tech_setup = yes
+    }
+}
+
+# triggered by on_game_start_country
+country_event = { 
+	id = the_culture.4
+	hide_window = yes
+	is_triggered_only = yes
+	trigger = {
+		has_origin = origin_the_culture
+	}
+	immediate = {
+        log = "the_culture.4 for [This.GetRealName]"
+        the_culture_country_setup = true
+    }
+}
