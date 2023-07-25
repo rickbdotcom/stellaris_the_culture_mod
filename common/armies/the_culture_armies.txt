@@ -1,0 +1,103 @@
+robotic_defense_army = {
+	defensive = yes
+	is_pop_spawned = yes
+	damage = 1.00
+	health = 1.25
+	morale_damage = 1.00
+	collateral_damage = 0.0
+	war_exhaustion = 0.0 # No WE from defense armies
+	has_morale = no
+	icon = GFX_army_type_robot
+	has_species = yes
+
+	potential = {
+		from = {
+			has_trait = "trait_mechanical"
+		}
+		owner = {
+			NOT = { has_authority = auth_machine_intelligence }
+		}
+		OR = {
+			owner = { NOT = { has_origin = origin_the_culture } }
+			from = { has_trait = trait_culture_drone }
+		}
+	}
+
+	resources = {
+		category = armies
+		produces = {
+			trigger = {
+				exists = owner
+				owner = { has_active_tradition = tr_unyielding_resistance_is_frugal }
+			}
+			unity = 0.5
+		}
+	}
+
+	allow = {
+		owner = { NOT = { has_policy_flag = robots_outlawed } }
+	}
+}
+
+
+robotic_army = {
+	damage = 1.00
+	health = 2.00
+	morale_damage = 1.00
+	collateral_damage = 1.5
+	war_exhaustion = 0.50
+	has_morale = no
+	time = 90
+	icon = GFX_army_type_robot
+	has_species = yes
+
+	resources = {
+		category = armies
+		cost = {
+			minerals = 150
+		}
+
+		upkeep = {
+			energy = 1.5
+		}
+	}
+
+	potential_country = {
+		NOT = { has_authority = auth_machine_intelligence }
+	}
+	potential = {
+		from = { has_trait = "trait_mechanical" }
+		OR = {
+			owner = { NOT = { has_origin = origin_the_culture } }
+			from = { has_trait = trait_culture_drone }
+		}
+	}
+
+	prerequisites = { "tech_droid_workers" }
+
+	allow = {
+		owner = { NOT = { has_policy_flag = robots_outlawed } }
+	}
+
+	ai_weight = {
+		base = 100
+		modifier = {
+			set = 0
+			OR = {
+				NOT = { has_policy_flag = robots_outlawed }
+				has_technology = tech_telepathy
+				has_technology = tech_gene_seed_purification
+				NAND = {
+					has_ai_personality_behaviour = robot_liberator
+					has_technology = tech_droid_workers
+				}
+			}
+			is_fallen_empire = no
+		}
+		modifier = {
+			set = 0
+			is_fallen_empire = yes
+			NOT = { has_ethic = ethic_fanatic_materialist }
+		}
+	}
+}

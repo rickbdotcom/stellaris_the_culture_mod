@@ -15,9 +15,7 @@ trait_culture_mind = {
 
 	allowed_archetypes = { ROBOT }
 
-	modifier = {
-		pop_environment_tolerance = 2.0
-	}
+	modifier = { pop_government_ethic_attraction = -0.50 }
 }
 
 trait_culture_drone = {
@@ -37,9 +35,7 @@ trait_culture_drone = {
 
 	allowed_archetypes = { ROBOT }
 
-	modifier = {
-		pop_environment_tolerance = 2.0
-	}
+	modifier = { pop_government_ethic_attraction = -0.50 }
 }
 
 trait_culture_citizen = {
@@ -57,4 +53,6 @@ trait_culture_citizen = {
 	}
 
 	allowed_archetypes = { BIOLOGICAL LITHOID }
+
+	modifier = { pop_government_ethic_attraction = -0.50 }
 }
