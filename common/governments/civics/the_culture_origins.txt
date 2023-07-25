@@ -1,3 +1,5 @@
+# THE CULTURE
+#
 origin_the_culture = {
 	is_origin = yes
 
@@ -8,10 +10,13 @@ origin_the_culture = {
 	preferred_planet_class_neighbor = no	
 	advanced_start = yes
 
+	# main species has culture citizen trait
+	# all organic pops will have this trait added/removed when they join/leave (CULTURE TODO)
 	traits = {
 		trait = trait_culture_citizen
 	}
 
+	# The Culture is the definition of fanatic egalatarian and materialist
 	possible = {
 		ethics = {
 			value = ethic_materialist
@@ -19,15 +24,20 @@ origin_the_culture = {
 		}
 	}
 
+	# build robots faster and more traits
 	modifier = {
 		planet_pop_assembly_mult = 0.15
 		ROBOT_species_trait_picks_add = 1
 	}
 
-#	icon = gfx/interface/icons/origins/origins_default.dds # if you make a custom icon, you can remove this line - it points to the prosperous unification icon
-#	picture = GFX_origin_default # if you make a custom origin picture (and gfx file), you can remove this line - it points to the prosperous unification picture
+	# CULTURE TODO custom icon and picture
+	#	icon = gfx/interface/icons/origins/origins_default.dds # if you make a custom icon, you can remove this line - it points to the prosperous unification icon
+	#	picture = GFX_origin_default # if you make a custom origin picture (and gfx file), you can remove this line - it points to the prosperous unification picture
 	playable = { has_utopia = yes } # controls whether the player can pick this origin - this example is gated behind the Utopia DLC
 
-	ai_playable = no
+	# Don't let AI get its hands on this :)
+# TODO	ai_playable = no
+	
+	# CULTURE TODO description
 	description = origin_the_culture_effects # the origin's custom description that shows in the origin selection screen
 }

@@ -1,3 +1,4 @@
+# The Culture: remove servitude as an option
 artificial_intelligence_policy = {
 
 	potential = {
@@ -69,9 +70,9 @@ artificial_intelligence_policy = {
 				fail_text = is_a_synthetic_empire_fail
 				NOT = { has_country_flag = synthetic_empire }
 			}
-
+			# The Culture: no AI servitude ever
 			custom_tooltip = {
-				fail_text = is_a_synthetic_empire_fail
+				fail_text = is_a_synthetic_empire_fail # CULTURE TODO
 				NOT = { has_origin = origin_the_culture }
 			}
 		}

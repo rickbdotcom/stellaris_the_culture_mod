@@ -32,6 +32,7 @@ empire_init_add_technologies = {
 	}
 }
 
+# Country setup, modify leaders
 on_game_start_country = {
 	events = {
 		the_culture.4

@@ -1,3 +1,5 @@
+# Only make Utopian (and biotrophy for organices) available 
+# The Culture enable for main specices
 living_standard_organic_trophy = {
 	triggered_pop_modifier = {
 		potential = {
@@ -18,7 +20,7 @@ living_standard_organic_trophy = {
 		exists = from
 		from = {
 			OR = {
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # Enable for main species
 				AND = {
 					has_authority = auth_machine_intelligence
 					has_valid_civic = civic_machine_servitor
@@ -43,7 +45,7 @@ living_standard_organic_trophy = {
 	}
 }
 
-
+# The Culture Utopian for all
 living_standard_utopian = {
 	triggered_pop_modifier = {
 		potential = {
@@ -115,8 +117,8 @@ living_standard_utopian = {
 				}
 			}
 		}
-		custom_tooltip = {
-			fail_text = the_culture_living_standard
+		custom_tooltip = { # The Culture exclude this for main species because its biotrophy
+			fail_text = the_culture_living_standard # CULTURE TODO
 			NOT = { has_trait = trait_culture_citizen }
 		}
 		custom_tooltip = {
@@ -179,6 +181,7 @@ living_standard_utopian = {
 	}
 }
 
+# The Culture only Utopian
 living_standard_academic_privilege = {
 	in_breach_of = {
 		{
@@ -225,7 +228,7 @@ living_standard_academic_privilege = {
 			NOR = {
 				has_valid_civic = civic_shared_burden
 				has_valid_civic = civic_dystopian_society
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # The Culture only utopian
 			}
 		}
 		NOR = {
@@ -317,6 +320,7 @@ living_standard_academic_privilege = {
 	}
 }
 
+# The Culture only utopian
 living_standard_good = {
 
 	in_breach_of = {
@@ -369,7 +373,7 @@ living_standard_good = {
 			NOR = {
 				has_valid_civic = civic_shared_burden
 				has_valid_civic = civic_dystopian_society
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # The Culture only utopian
 			}
 		}
 		NOR = {
@@ -468,6 +472,7 @@ living_standard_good = {
 	}
 }
 
+# The Culture only utopian
 living_standard_normal = {
 	triggered_pop_modifier = {
 		potential = {
@@ -512,7 +517,7 @@ living_standard_normal = {
 			NOR = {
 				has_valid_civic = civic_shared_burden
 				has_valid_civic = civic_dystopian_society
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # The Culture only utopian
 			}
 		}
 		NOR = {

@@ -1,3 +1,4 @@
+# THE CULTURE: only minds can be rulers
 can_fill_ruler_job = {
 	if = {
 		limit = {
@@ -39,7 +40,7 @@ can_fill_ruler_job = {
 				}
 				divinity_right_to_work_job_check_trigger_ruler = yes
 			}
-			OR = {
+			OR = { # THE CULTURE: only minds
 				owner = { NOT = { has_origin = origin_the_culture } }
 				has_trait = trait_culture_mind
 			}
@@ -47,6 +48,7 @@ can_fill_ruler_job = {
 	}
 }
 
+# THE CULTURE: only minds can be rulers
 can_generate_leader_from_pop = {
 	has_citizenship_rights = yes
 	NOT = { has_trait = trait_syncretic_proles }
@@ -70,7 +72,7 @@ can_generate_leader_from_pop = {
 			}
 		}
 	}
-	OR = {
+	OR = { # THE CULTURE: only minds
 		root = { NOT = { has_origin = origin_the_culture } }
 		has_trait = trait_culture_mind
 	}

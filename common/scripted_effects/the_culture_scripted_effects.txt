@@ -1,10 +1,12 @@
 # Called by the_culture.4
+# Set Leaders to Minds
 the_culture_country_setup = {
 	set_policy = {
 		policy = artificial_intelligence_policy
 		option = ai_full_rights
 		cooldown = no
 	}
+
 	ruler = {
 		change_species = event_target:species_mind
 		change_leader_portrait = species
@@ -26,6 +28,7 @@ the_culture_country_setup = {
 }
 
 # called by culture.3
+# Give all habitat techs, all Robot techs
 the_culture_tech_setup = {
 	give_technology = { tech = tech_habitat_1 message = no }
 	give_technology = { tech = tech_habitat_2 message = no }
@@ -38,10 +41,13 @@ the_culture_tech_setup = {
 }
 
 # Called by the_culture.2
+# create Minds and Drones, set rights 
 the_culture_home_planet_setup = {
 	log = "the_culture_home_planet_setup on \\[This.GetName] for \\[This.Owner.GetRealName]"
 
 	optimize_memory
+
+	# default setup
 	owner = {
 		give_starting_resources_effect = yes
 		save_event_target_as = the_culture_owner
@@ -74,6 +80,7 @@ the_culture_home_planet_setup = {
 		}
 	}
 
+	# Set main species to organic trophy
 	owner_main_species = {
 		set_citizenship_type = {
 			country = root.owner
@@ -85,6 +92,7 @@ the_culture_home_planet_setup = {
 		}
 	}
 
+	# Create Minds
 	create_species = {
 		name = "NAME_Culture_Mind"
 		plural = "NAME_Culture_Mind_plural"
@@ -101,6 +109,7 @@ the_culture_home_planet_setup = {
 		save_global_event_target_as = species_mind 
 	}
 
+	# Create Drones
 	create_species = {
 		name = "NAME_Culture_Drone"
 		plural = "NAME_Culture_Drone_plural"
@@ -117,6 +126,7 @@ the_culture_home_planet_setup = {
 		save_global_event_target_as = species_drone 
 	}
 
+	# 2 Minds for initial leaders
 	while = {
 		count = 2
 		create_pop = {
@@ -124,20 +134,23 @@ the_culture_home_planet_setup = {
 		}
 	}
 
+	# Drones
 	while = {
-		count = 2
+		count = 5
 		create_pop = {
 			species = event_target:species_drone
 		}
 	}
 
+	# Culture Citizens
 	while = {
-		count = 10
+		count = 5
 		create_pop = {
 			species = owner_main_species
 		}
 	}
 
+	# Captial habitat
 	set_planet_entity = {
 		entity = "habitat_phase_03_entity"
 		graphical_culture = event_target:the_culture_owner
@@ -156,32 +169,50 @@ the_culture_home_planet_setup = {
 	add_district_and_planet_size_if_needed_effect = {
 		district = district_hab_industrial
 	}
-
-	add_district_and_planet_size_if_needed_effect = {
-		district = district_generator
-	}
-	
-	add_building = building_organic_sanctuary
-	add_building = building_hab_major_capital
-	add_building = building_robot_assembly_plant
-	add_building = building_bureaucratic_1
-	add_building = building_holo_theatres
-
 	add_district_and_planet_size_if_needed_effect = {
 		district = district_hab_science
 	}
+	
+	add_building = building_hab_major_capital
+	add_building = building_organic_sanctuary
+	add_building = building_robot_assembly_plant
+	add_building = building_holo_theatres
 
 	add_deposit = d_arcane_replicator
+
+	# Add two other starting habitats
 	solar_system = {
+
+		# Mining habitat
 		random_system_planet = {
 			limit = { has_planet_flag = the_culture_habitat_2 }
 			set_owner = event_target:the_culture_owner
+
+
+			# 1 leader Mind
 			while = {
-				count = 9
+				count = 1
+				create_pop = {
+					species = event_target:species_mind
+				}
+			}
+
+			# Drones
+			while = {
+				count = 5
+				create_pop = {
+					species = event_target:species_drone
+				}
+			}
+
+			# Culture Citizens
+			while = {
+				count = 5
 				create_pop = {
 					species = owner_main_species
 				}
 			}
+
 			set_planet_entity = {
 				entity = "habitat_phase_03_entity"
 				graphical_culture = event_target:the_culture_owner
@@ -195,6 +226,9 @@ the_culture_home_planet_setup = {
 				district = district_hab_mining
 			}
 
+			add_building = building_organic_sanctuary
+
+			# standard setup
 			if = {
 				limit = {
 					owner = {
@@ -216,15 +250,36 @@ the_culture_home_planet_setup = {
 				}
 			}
 		}
+
+		# Energy habitat
 		random_system_planet = {
 			limit = { has_planet_flag = the_culture_habitat_3 }
 			set_owner = event_target:the_culture_owner
+
+			# 1 leader Mind
 			while = {
-				count = 9
+				count = 1
+				create_pop = {
+					species = event_target:species_mind
+				}
+			}
+
+			# Drones
+			while = {
+				count = 5
+				create_pop = {
+					species = event_target:species_drone
+				}
+			}
+
+			# Culture Citizens
+			while = {
+				count = 5
 				create_pop = {
 					species = owner_main_species
 				}
 			}
+
 			set_planet_entity = {
 				entity = "habitat_phase_03_entity"
 				graphical_culture = event_target:the_culture_owner
@@ -241,6 +296,9 @@ the_culture_home_planet_setup = {
 				district = district_hab_commercial
 			}
 
+			add_building = building_organic_sanctuary
+
+			# standard setup
 			if = {
 				limit = {
 					owner = {

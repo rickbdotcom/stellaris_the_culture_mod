@@ -1,3 +1,4 @@
+# THE CULTURE: only drones can be armies
 robotic_defense_army = {
 	defensive = yes
 	is_pop_spawned = yes
@@ -17,7 +18,7 @@ robotic_defense_army = {
 		owner = {
 			NOT = { has_authority = auth_machine_intelligence }
 		}
-		OR = {
+		OR = { # THE CULTURE: only drones
 			owner = { NOT = { has_origin = origin_the_culture } }
 			from = { has_trait = trait_culture_drone }
 		}
@@ -39,7 +40,7 @@ robotic_defense_army = {
 	}
 }
 
-
+# THE CULTURE: only drones can be armies
 robotic_army = {
 	damage = 1.00
 	health = 2.00
@@ -67,7 +68,7 @@ robotic_army = {
 	}
 	potential = {
 		from = { has_trait = "trait_mechanical" }
-		OR = {
+		OR = { # THE CULTURE: only drones
 			owner = { NOT = { has_origin = origin_the_culture } }
 			from = { has_trait = trait_culture_drone }
 		}

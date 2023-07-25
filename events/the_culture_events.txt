@@ -88,20 +88,6 @@ country_event = {
 	}
 	immediate = {
         log = "the_culture.4 for [This.GetRealName]"
-        the_culture_country_setup = true
-    }
-}
-
-# triggered by empire_init_create_ships
-country_event = { 
-	id = the_culture.5
-	hide_window = yes
-	is_triggered_only = yes
-	trigger = {
-		has_origin = origin_the_culture
-	}
-	immediate = {
-        log = "the_culture.3 for [This.GetRealName]"
-        the_culture_leader_setup = yes
+        the_culture_country_setup = yes
     }
 }

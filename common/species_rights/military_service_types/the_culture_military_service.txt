@@ -1,7 +1,4 @@
-# from = country
-# this = species
-
-
+# The Culture: Only Minds set to full (but can't make armies)
 military_service_full = {
 	potential = {
 		if = {
@@ -43,8 +40,8 @@ military_service_full = {
 				has_citizenship_type = { country = from type = citizenship_purge }
 			}
 		}
-		custom_tooltip = {
-			fail_text = the_culture_military_service
+		custom_tooltip = { # The Culture Only Minds
+			fail_text = the_culture_military_service # CULTURE TODO
 			NOR = {
 				has_trait = trait_culture_citizen
 				has_trait = trait_culture_drone
@@ -121,6 +118,7 @@ military_service_full = {
 	}
 }
 
+# The Culture: Only Drones as armies
 military_service_limited = {
 	potential = {
 		from = { NOT = { has_ethic = ethic_gestalt_consciousness } }
@@ -128,8 +126,8 @@ military_service_limited = {
 
 	allow = {
 		hidden_trigger = { exists = from }
-		custom_tooltip = {
-			fail_text = the_culture_military_service
+		custom_tooltip = { # Only drones
+			fail_text = the_culture_military_service # CULTURE TODO
 			NOR = {
 				has_trait = trait_culture_citizen
 				has_trait = trait_culture_mind
@@ -169,6 +167,7 @@ military_service_limited = {
 	}
 }
 
+# The Culture: organics exemption
 military_service_none = {
 	potential = {
 		OR = {
@@ -179,8 +178,8 @@ military_service_none = {
 
 	allow = {
 		hidden_trigger = { exists = from }
-		custom_tooltip = {
-			fail_text = the_culture_military_service
+		custom_tooltip = {  # Organics exempt from service
+			fail_text = the_culture_military_service # CULTURE TODO
 			NOR = {
 				has_trait = trait_culture_mind
 				has_trait = trait_culture_drone

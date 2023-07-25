@@ -14,7 +14,7 @@ trait_culture_mind = {
 	immortal_leaders = yes
 
 	allowed_archetypes = { ROBOT }
-
+	
 	modifier = { pop_government_ethic_attraction = -0.50 }
 }
 

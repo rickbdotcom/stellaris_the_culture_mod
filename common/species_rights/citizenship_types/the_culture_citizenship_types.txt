@@ -1,10 +1,11 @@
+# The Culture: Main species bio trophy
 citizenship_organic_trophy = {
 	potential = {
 		host_has_dlc = "Synthetic Dawn Story Pack"
 		exists = from
 		from = {
 			OR = {
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # The Culture make this option available
 				AND = {
 					has_authority = auth_machine_intelligence
 					has_civic = civic_machine_servitor
@@ -35,13 +36,14 @@ citizenship_organic_trophy = {
 	}
 }
 
+# The Culture: Main species is bio trophy
 citizenship_full = {
 	is_full_citizenship = yes
 
 	potential = {
 		exists = from
 		OR = {
-			from = { has_origin = origin_the_culture }			
+			from = { has_origin = origin_the_culture } # Always available
 			AND = {
 				NOT = { from = { has_authority = auth_machine_intelligence } }
 				NOR = {
@@ -56,8 +58,8 @@ citizenship_full = {
 		hidden_trigger = { exists = from }
 
 		custom_tooltip = {
-			fail_text = the_culture_full_citizenship
-			from = { has_origin = origin_the_culture }
+			fail_text = the_culture_full_citizenship # CULTURE TODO
+			from = { has_origin = origin_the_culture } # Main species is biotrophy
 			has_trait = trait_mechanical
 		}
 
@@ -114,7 +116,7 @@ citizenship_full = {
 	}
 }
 
-
+# The Culture: never available
 citizenship_limited = {
 	new_pop_weight = 0.75
 
@@ -130,7 +132,7 @@ citizenship_limited = {
 			NOR = {
 				has_authority = auth_hive_mind
 				has_authority = auth_machine_intelligence
-				has_origin = origin_the_culture
+				has_origin = origin_the_culture # The Culture this option is never available
 			}
 		}
 		NOR = {
