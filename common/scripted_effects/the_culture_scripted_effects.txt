@@ -176,7 +176,6 @@ the_culture_home_planet_setup = {
 	add_building = building_hab_major_capital
 	add_building = building_organic_sanctuary
 	add_building = building_robot_assembly_plant
-	add_building = building_holo_theatres
 
 	add_deposit = d_arcane_replicator
 
