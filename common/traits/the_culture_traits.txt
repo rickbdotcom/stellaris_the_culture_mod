@@ -29,7 +29,8 @@ trait_culture_mind = {
 		pc_ocean_habitability = -2.0
 		pc_alpine_habitability = -2.0
 
-		planet_jobs_produces_mult = 2.0
+		planet_jobs_produces_mult = 1.0
+		planet_pops_consumer_goods_upkeep_mult = 1.0
 	}
 }
 
@@ -63,6 +64,13 @@ trait_culture_drone = {
 		pc_arctic_habitability = -2.0
 		pc_ocean_habitability = -2.0
 		pc_alpine_habitability = -2.0
+	}
+
+	assembly_score = {
+		modifier = {
+			add = 1.5
+			from = { uses_district_set = habitat }
+		}
 	}
 }
 

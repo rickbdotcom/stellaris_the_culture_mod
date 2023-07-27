@@ -77,3 +77,27 @@ can_generate_leader_from_pop = {
 		has_trait = trait_culture_mind
 	}
 }
+
+# THE CULTURE: allow culture drones to fill this job
+can_fill_drone_job = {
+	custom_tooltip = DRONE_JOB_TRIGGER
+	hidden_trigger = {
+		exists = owner
+		OR = {
+			owner = { is_gestalt = yes }
+			has_trait = trait_culture_drone
+		}
+		is_being_purged = no
+		is_enslaved = no
+		is_being_assimilated = no
+		NOT = { has_citizenship_type = { type = citizenship_organic_trophy country = owner } }
+	}
+}
+
+# THE CULTURE: no crime
+pop_generates_crime = {
+	is_sapient = yes
+	is_non_sapient_robot = no
+	is_being_assimilated = no
+	owner = { NOT = { has_origin = origin_the_culture } }
+}

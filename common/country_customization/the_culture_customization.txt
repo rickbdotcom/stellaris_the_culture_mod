@@ -1,0 +1,15 @@
+the_culture = {
+	colony_shelter = {
+		default = "building_colony_shelter"
+		pc_habitat = "building_orbital_capital"
+	}
+
+	weight = {
+		base = 0
+		modifier = {
+			add = 10
+			has_origin = origin_the_culture
+		}
+	}
+}
+

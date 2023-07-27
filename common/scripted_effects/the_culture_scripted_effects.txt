@@ -52,31 +52,21 @@ the_culture_home_planet_setup = {
 		give_starting_resources_effect = yes
 		save_event_target_as = the_culture_owner
 		
-		if = {
-			limit = {
-				OR = {
-					is_lithoid_empire = no
-					is_catalytic_empire = yes
-				}
-			}
-			give_technology = {
-				tech = tech_eco_simulation
-				message = no
-			}
-			give_technology = {
-				tech = tech_hydroponics
-				message = no
-			}
+		give_technology = {
+			tech = tech_eco_simulation
+			message = no
 		}
-		else = {
-			give_technology = {
-				tech = tech_powered_exoskeletons
-				message = no
-			}
-			give_technology = {
-				tech = tech_space_mining_1
-				message = no
-			}
+		give_technology = {
+			tech = tech_hydroponics
+			message = no
+		}
+		give_technology = {
+			tech = tech_powered_exoskeletons
+			message = no
+		}
+		give_technology = {
+			tech = tech_space_mining_1
+			message = no
 		}
 	}
 
@@ -150,16 +140,14 @@ the_culture_home_planet_setup = {
 		}
 	}
 
-	# Captial habitat
+	# Capital habitat
 	set_planet_entity = {
-		entity = "habitat_phase_03_entity"
+		entity = "habitat_phase_02_entity"
 		graphical_culture = event_target:the_culture_owner
 	}
-	set_planet_size = 8
-	set_planet_flag = advanced_habitat_2
+	set_planet_size = 6
+	set_planet_flag = advanced_habitat
 	
-#	planet_max_buildings_add = 15
-
 	add_district_and_planet_size_if_needed_effect = {
 		district = district_hab_housing
 	}
@@ -173,9 +161,9 @@ the_culture_home_planet_setup = {
 		district = district_hab_science
 	}
 	
-	add_building = building_hab_major_capital
+	add_building = building_orbital_major_capital
 	add_building = building_organic_sanctuary
-	add_building = building_robot_assembly_plant
+	add_building = building_hydroponics_farm
 
 	add_deposit = d_arcane_replicator
 
@@ -213,11 +201,11 @@ the_culture_home_planet_setup = {
 			}
 
 			set_planet_entity = {
-				entity = "habitat_phase_03_entity"
+				entity = "habitat_phase_01_entity"
 				graphical_culture = event_target:the_culture_owner
 			}
-			set_planet_size = 8
-			set_planet_flag = advanced_habitat_2
+			set_planet_size = 4
+			set_planet_flag = mining_habitat
 			add_district_and_planet_size_if_needed_effect = {
 				district = district_hab_housing
 			}
@@ -226,28 +214,7 @@ the_culture_home_planet_setup = {
 			}
 
 			add_building = building_organic_sanctuary
-
-			# standard setup
-			if = {
-				limit = {
-					owner = {
-						OR = {
-							is_lithoid_empire = no
-							is_catalytic_empire = yes
-						}
-					}
-				}
-				add_building = building_hydroponics_farm
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_hab_commercial
-				}
-			}
-			else = {
-				add_building = building_commercial_zone
-				add_district_and_planet_size_if_needed_effect = {
-					district = district_hab_mining
-				}
-			}
+			add_building = building_hydroponics_farm
 		}
 
 		# Energy habitat
@@ -280,40 +247,20 @@ the_culture_home_planet_setup = {
 			}
 
 			set_planet_entity = {
-				entity = "habitat_phase_03_entity"
+				entity = "habitat_phase_01_entity"
 				graphical_culture = event_target:the_culture_owner
 			}
-			set_planet_size = 8
-			set_planet_flag = advanced_habitat_2
+			set_planet_size = 4
+			set_planet_flag = energy_habitat
 			add_district_and_planet_size_if_needed_effect = {
 				district = district_hab_housing
 			}
 			add_district_and_planet_size_if_needed_effect = {
 				district = district_hab_energy
 			}
-			add_district_and_planet_size_if_needed_effect = {
-				district = district_hab_commercial
-			}
 
 			add_building = building_organic_sanctuary
-
-			# standard setup
-			if = {
-				limit = {
-					owner = {
-						is_lithoid_empire = no
-					}
-				}
-				add_building = building_hydroponics_farm
-			}
-			if = {
-				limit = {
-					owner = {
-						is_lithoid_empire = yes
-					}
-				}
-				add_building = building_bureaucratic_1
-			}
+			add_building = building_hydroponics_farm
 		}
 		every_system_planet = {
 			limit = { has_planet_flag = mining_planet }
